@@ -7,11 +7,11 @@ This project utilizes the Rust programming language to create a flexible and eff
 ## Ephemeris
 
 1. **Download NASA JPL:**
-   - Download NASA JPL DE441 Library `linux_m13000p17000.441` [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/){:target="_blank"}
+   - Download NASA JPL DE441 Library `linux_m13000p17000.441` [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/{:target="_blank"})
 
 ## Configuration
 
-1. Make a copy of `.env` and rename it to `.env`.
+1. Make a copy of `env` and rename it to `env`.
 
 2. Set the path of NASA_JPL_DE441 in `.env`.
 
