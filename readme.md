@@ -7,21 +7,16 @@ This project utilizes the Rust programming language to create a flexible and eff
 ## Ephemeris
 
 1. **Downlod NASA JPL :**
-    - [https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/](https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/)
+    - Download NASA JPL DE441 Library [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/)
 
 
 
-## Example
+## Configuration
 
-```sh
-# Assuming DE441.bsp is in the project directory
-cargo run --release -- 2451545.0 4
-```
+1. Make copy of env and rename it to .env
 
-Output:
-```
-Planet 4: (x, y, z)
-```
+2. ``set path of NASA_JPL_DE441 in .env ``
+
 
 ## Contributing
 

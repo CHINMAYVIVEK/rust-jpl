@@ -1,8 +1,10 @@
 [package]
 name = "rust-jpl"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
+authors = ["Chinmay Vivek <chinmay.vivek@gmail.com>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+dotenv = "0.15.0"
