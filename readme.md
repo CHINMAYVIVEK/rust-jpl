@@ -2,21 +2,18 @@
 
 The Rust JPL Ephemeris Reader is a Rust project designed to read NASA JPL ephemeris data and provide planetary positions based on a given Julian date. NASA's Jet Propulsion Laboratory (JPL) releases ephemeris data containing accurate positions of celestial bodies, which is crucial for various scientific and engineering applications.
 
-This project utilizes the Rust programming language to create a flexible and efficient tool for extracting planetary positions from the  ephemeris file. The DE441 file is part of the Development Ephemeris (DE) series, and it provides accurate planetary positions for a wide range of dates.
+This project utilizes the Rust programming language to create a flexible and efficient tool for extracting planetary positions from the ephemeris file. The DE441 file is part of the Development Ephemeris (DE) series, and it provides accurate planetary positions for a wide range of dates.
 
 ## Ephemeris
 
-1. **Downlod NASA JPL :**
-    - Download NASA JPL DE441 Library [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/)
-
-
+1. **Download NASA JPL:**
+   - Download NASA JPL DE441 Library `linux_m13000p17000.441` [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/){:target="_blank"}
 
 ## Configuration
 
-1. Make copy of env and rename it to .env
+1. Make a copy of `.env` and rename it to `.env`.
 
-2. ``set path of NASA_JPL_DE441 in .env ``
-
+2. Set the path of NASA_JPL_DE441 in `.env`.
 
 ## Contributing
 
