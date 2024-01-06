@@ -1,3 +1,5 @@
 # NASA Ephemeris Configuration
 
-NASA_JPL_DE441=/path/to/NASA/JPL/linux_m13000p17000.441
+NASA_JPL_DE441=assets/linux_m13000p17000.441.bsp
+HEADER_441=assets/header.441
+INITIAL_DATA_DAT=assets/Initial_data.dat
