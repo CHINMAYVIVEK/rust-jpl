@@ -9,7 +9,7 @@ This project utilizes the Rust programming language to create a flexible and eff
 1. **Download NASA JPL:**
    - Download NASA JPL DE441 Library `linux_m13000p17000.441` and `header.441` [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/) and set the path of files in .env
 
-   - Rename `linux_m13000p17000.441` to `linux_m13000p17000.441.bsp`
+   - Rename `linux_m13000p17000.441` to `linux_m13000p17000.441.bsp` and place in `assets/` directory 
 
 
 ## Configuration
