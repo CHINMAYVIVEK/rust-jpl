@@ -1,25 +1,68 @@
+use rust_jpl::{Ephemeris, JulianDate};
 
-use std::env;
-use std::fs::File;
-use std::io::{self, Read};
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Load configuration
+    let config_path = "config.toml";
 
-fn main() -> io::Result<()> {
-    // Load environment variables from .env file
-    dotenv::dotenv().ok();
+    println!("Initializing Ephemeris from {}...", config_path);
+    let eph = match Ephemeris::new(config_path) {
+        Ok(e) => e,
+        Err(err) => {
+            eprintln!("Error initializing ephemeris: {}", err);
+            std::process::exit(1);
+        }
+    };
 
-    // Read the path to the NASA JPL Ephemeris file from the environment
-    let de404_path = env::var("NASA_JPL_DE441").expect("NASA_JPL_DE441 not set in .env");
+    // Display metadata
+    let metadata = eph.get_metadata();
+    println!("\nEphemeris Metadata:");
+    println!(
+        "  Date Range: {} - {} (Julian: {} - {})",
+        metadata.start_year, metadata.end_year, metadata.julian_start, metadata.julian_end
+    );
+    println!("  Interval: {} days", metadata.interval_days);
+    println!("  Earth-Moon Ratio: {}", metadata.earth_moon_ratio);
+    println!(
+        "  Number of Coefficients: {}",
+        metadata.number_of_coefficients
+    );
 
-    // Attempt to open the file
-    let mut file = File::open(&de404_path).expect("open");
+    // List available bodies
+    println!("\nAvailable Celestial Bodies:");
+    for body in eph.get_bodies() {
+        println!("  {} (active: {})", body.name, body.active);
+    }
 
-    // Read the contents of the file
-    let mut mutbuf = vec![0; 0];
-    file.read_to_end(&mut mutbuf).expect("to end");
-    let buffer = mutbuf.clone();
+    // Example: Get position for a specific date
+    println!("\nExample: Getting planetary positions");
+    let jd = JulianDate::from_calendar(2024, 1, 15, 12, 0, 0.0)?;
+    println!("Julian Date: {}", jd.as_f64());
 
-    // Print the contents of the file
-    println!("Contents of the NASA JPL Ephemeris file:\n{:#?}", buffer);
+    let cal = jd.to_calendar();
+    println!(
+        "Calendar Date: {}-{:02}-{:02} {:02}:{:02}:{:02}",
+        cal.year, cal.month, cal.day, cal.hour, cal.minute, cal.second as i32
+    );
+
+    // Try to get positions for various bodies
+    let bodies_to_query = ["Sun", "Earth", "Moon", "Mars", "Jupiter"];
+    for body_name in &bodies_to_query {
+        match eph.get_position(body_name, jd) {
+            Ok(pos) => {
+                println!(
+                    "  {}: Position ({:.6}, {:.6}, {:.6}) AU, Distance: {:.6} AU",
+                    body_name,
+                    pos.x,
+                    pos.y,
+                    pos.z,
+                    pos.distance()
+                );
+            }
+            Err(e) => {
+                println!("  {}: Error - {}", body_name, e);
+            }
+        }
+    }
 
     Ok(())
 }

@@ -119,8 +119,16 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,linux,rust,rust-analyzer,windows
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
-
 **/*.rs.bk
 *.bsp
 *.eph
 .env
+
+# Ephemeris data files (large binary files)
+assets/*.bsp
+assets/*.441
+!assets/header.441
+!assets/Initial_data.dat
+
+# Configuration (may contain local paths)
+config.toml

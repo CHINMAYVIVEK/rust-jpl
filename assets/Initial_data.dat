@@ -1,0 +1,20 @@
+BODIES:
+
+Mercury					true
+Venus					true
+EarthMoon_barycenter	true
+Mars					true
+Jupiter					true
+Saturn					true
+Uranus					true
+Neptune					true
+Pluto					true
+Moon_geocentric			true
+Sun						true
+Earth_Nutations			false
+Lunar_mantle_libration	false
+
+DATE:
+
+Start_year			1940
+End_year			2100
