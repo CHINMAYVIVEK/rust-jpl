@@ -123,3 +123,12 @@ $RECYCLE.BIN/
 *.bsp
 *.eph
 .env
+
+# Ephemeris data files (large binary files)
+assets/*.bsp
+assets/*.441
+!assets/header.441
+!assets/Initial_data.dat
+
+# Configuration (may contain local paths)
+config.toml

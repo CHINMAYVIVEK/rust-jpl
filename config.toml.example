@@ -1,0 +1,7 @@
+# NASA Ephemeris Configuration
+# Copy this file to config.toml and update the paths to your ephemeris files
+
+[paths]
+nasa_jpl_de441 = "assets/linux_m13000p17000.441.bsp"
+header_441 = "assets/header.441"
+initial_data_dat = "assets/Initial_data.dat"

@@ -3,8 +3,43 @@ name = "rust-jpl"
 version = "0.0.1"
 edition = "2021"
 authors = ["Chinmay Vivek <chinmay.vivek@gmail.com>"]
+description = "A Rust library for parsing NASA JPL ephemeris data, providing precise planetary positions based on Julian dates"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/chinmayvivek/rust-jpl"
+documentation = "https://docs.rs/rust-jpl"
+homepage = "https://github.com/chinmayvivek/rust-jpl"
+readme = "README.md"
+keywords = [
+  "jpl",
+  "ephemeris",
+  "astronomy",
+  "planetary",
+  "julian-date",
+  "nasa",
+  "de441",
+]
+categories = ["science", "astronomy"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "rust_jpl"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust-jpl"
+path = "src/main.rs"
 
 [dependencies]
-dotenv = "0.15.0"
+config = "0.15.19"
+serde = { version = "1.0", features = ["derive"] }
+
+[[example]]
+name = "basic_usage"
+path = "examples/basic_usage.rs"
+
+[[example]]
+name = "time_conversion"
+path = "examples/time_conversion.rs"
+
+[[example]]
+name = "planetary_positions"
+path = "examples/planetary_positions.rs"
