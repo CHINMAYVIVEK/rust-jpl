@@ -1,0 +1,8 @@
+name: 💡 Ideas
+description: Brainstorm new ideas or directions
+body:
+  - type: textarea
+    attributes:
+      label: Idea Description
+    validations:
+      required: true

@@ -1,0 +1,25 @@
+name: 🛰️ Integration Help
+description: Help integrating rust-jpl into a Rust project
+title: "[Integration]: "
+labels: ["question"]
+
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Integration Goal
+      description: What are you trying to achieve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Target platform, OS, runtime constraints
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Snippet
+      render: rust

@@ -1,0 +1,8 @@
+name: ❓ Q&A
+description: Ask general questions
+body:
+  - type: textarea
+    attributes:
+      label: Question
+    validations:
+      required: true
