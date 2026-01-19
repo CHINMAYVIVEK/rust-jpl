@@ -12,21 +12,26 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  RUST_BACKTRACE: 1 # helpful for debugging panics
+  RUST_BACKTRACE: 1 # Helpful for debugging panics
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Set up Rust toolchain using latest supported action
       - name: Set up Rust
-        uses: actions/setup-rust@v1
+        uses: rust-lang/setup-rust@v2
         with:
-          rust-version: stable
+          toolchain: stable
+          profile: minimal
+          override: true
 
+      # 3️⃣ Cache cargo registry and git dependencies for faster builds
       - name: Cache cargo registry and git
         uses: actions/cache@v3
         with:
@@ -37,8 +42,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
 
+      # 4️⃣ Create temporary config.toml to ensure tests pass
       - name: Create temporary config.toml
         run: |
+          mkdir -p assets
           cat <<EOT > config.toml
           [paths]
           nasa_jpl_de441 = "assets/linux_m13000p17000.441.bsp"
@@ -46,17 +53,22 @@ jobs:
           initial_data_dat = "assets/Initial_data.dat"
           EOT
 
+      # 5️⃣ Build the project
       - name: Build
         run: cargo build --verbose
 
+      # 6️⃣ Run unit tests
       - name: Run unit tests
         run: cargo test --verbose
 
+      # 7️⃣ Run doctests
       - name: Run doctests
         run: cargo test --doc --verbose
 
+      # 8️⃣ Run Clippy linter
       - name: Run Clippy
         run: cargo clippy --all-targets --all-features -- -D warnings
 
+      # 9️⃣ Check code formatting
       - name: Check formatting
         run: cargo fmt --all -- --check
