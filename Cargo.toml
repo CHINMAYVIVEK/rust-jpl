@@ -21,9 +21,11 @@ keywords = [
 
 # --- categories on crates.io ---
 categories = [
-    "science/astronomy",
-    "science/physics",
-    "science/simulation"
+    "science",
+    "astronomy",
+    "physics",
+    "simulation",
+    "astrology"
 ]
 
 # --- exclude large binary data from the crate ---
