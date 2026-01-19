@@ -25,7 +25,7 @@ jobs:
 
       # 2️⃣ Set up Rust toolchain using latest supported action
       - name: Set up Rust
-        uses: rust-lang/setup-rust@v2
+        uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           profile: minimal
