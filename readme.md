@@ -54,7 +54,7 @@ The library is designed for **scientific correctness, API clarity, and performan
 
 ```toml
 [dependencies]
-rust-jpl = "0.0.1"
+rust-jpl = "0.0.1-alpha"
 ```
 
 ### From source

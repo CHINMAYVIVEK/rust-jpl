@@ -1,6 +1,6 @@
 [package]
 name = "rust-jpl"
-version = "0.0.1"
+version = "0.0.1-alpha"
 edition = "2021"
 authors = ["Chinmay Vivek <iam@chinmayvivek.com>"]
 description = "Rust library for NASA JPL DE441 ephemeris: precise planetary positions for astronomy, astrophysics, and astrology applications"
