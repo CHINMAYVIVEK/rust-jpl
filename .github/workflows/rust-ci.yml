@@ -1,0 +1,67 @@
+name: Rust CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1 # helpful for debugging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Set up Rust toolchain
+      - name: Set up Rust
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      # 3️⃣ Cache cargo dependencies for faster builds
+      - name: Cache cargo registry and git
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      # 4️⃣ Create a temporary config.toml for CI
+      - name: Create temporary config.toml
+        run: |
+          cat <<EOT > config.toml
+          [paths]
+          nasa_jpl_de441 = "assets/linux_m13000p17000.441.bsp"
+          header_441 = "assets/header.441"
+          initial_data_dat = "assets/Initial_data.dat"
+          EOT
+
+      # 5️⃣ Build the project
+      - name: Build
+        run: cargo build --verbose
+
+      # 6️⃣ Run all unit tests
+      - name: Run tests
+        run: cargo test --verbose
+
+      # 7️⃣ Run all doctests
+      - name: Run doctests
+        run: cargo test --doc --verbose
+
+      # 8️⃣ Optional: Run Clippy for linting
+      - name: Run Clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+      # 9️⃣ Optional: Run rustfmt check
+      - name: Check formatting
+        run: cargo fmt --all -- --check

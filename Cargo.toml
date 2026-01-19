@@ -3,30 +3,36 @@ name = "rust-jpl"
 version = "0.0.1"
 edition = "2021"
 authors = ["Chinmay Vivek <iam@chinmayvivek.com>"]
-description = "A Rust library for parsing NASA JPL ephemeris data, providing precise planetary positions based on Julian dates"
+description = "Rust library for NASA JPL DE441 ephemeris: precise planetary positions for astronomy, astrophysics, and astrology applications"
 license = "MIT"
 repository = "https://github.com/chinmayvivek/rust-jpl"
 documentation = "https://docs.rs/rust-jpl"
 homepage = "https://github.com/chinmayvivek/rust-jpl"
 readme = "crates-io.md"
-keywords = [
-  "jpl",
-  "ephemeris",
-  "astronomy",
-  "planetary",
-  "julian-date",
-  "nasa",
-  "de441",
-]
-categories = ["science", "astronomy"]
 
+# --- optimized keywords (max 5) ---
+keywords = [
+    "ephemeris",
+    "astronomy",
+    "astrophysics",
+    "planetary",
+    "jpl"
+]
+
+# --- categories on crates.io ---
+categories = [
+    "science/astronomy",
+    "science/physics",
+    "science/simulation"
+]
+
+# --- exclude large binary data from the crate ---
 exclude = [
     "assets/linux_m13000p17000.441.bsp",
     "assets/header.441",
     "assets/Initial_data.dat",
     "assets/testpo.441",
 ]
-
 
 [lib]
 name = "rust_jpl"
@@ -36,10 +42,12 @@ path = "src/lib.rs"
 name = "rust-jpl"
 path = "src/main.rs"
 
+# --- dependencies ---
 [dependencies]
 config = "0.15.19"
 serde = { version = "1.0", features = ["derive"] }
 
+# --- examples for discoverability ---
 [[example]]
 name = "basic_usage"
 path = "examples/basic_usage.rs"
