@@ -12,20 +12,19 @@ readme = "crates-io.md"
 
 # --- optimized keywords (max 5) ---
 keywords = [
-    "ephemeris",
+    "astrology",
     "astronomy",
-    "astrophysics",
-    "planetary",
+    "ephemeris",
+    "julian-date",
     "jpl"
 ]
 
 # --- categories on crates.io ---
 categories = [
-    "science",
-    "astronomy",
-    "physics",
-    "simulation",
-    "astrology"
+    "science",         # general scientific domain
+    "date-and-time",   # works with Julian dates and ephemeris
+    "mathematics",     # numerical and scientific calculations
+    "simulation"       # for orbital/space simulation use-cases
 ]
 
 # --- exclude large binary data from the crate ---
