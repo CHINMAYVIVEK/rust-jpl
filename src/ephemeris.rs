@@ -273,7 +273,7 @@ impl Ephemeris {
     /// Position in AU (Astronomical Units)
     ///
     /// # Example
-    /// ```
+    /// ```ignore
     /// use rust_jpl::{Ephemeris, JulianDate};
     /// let mut eph = Ephemeris::new("config.toml")?;
     /// let jd = JulianDate::from_calendar(2024, 1, 15, 12, 0, 0.0)?;
