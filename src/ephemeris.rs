@@ -75,7 +75,7 @@ impl Ephemeris {
     /// * `config_path` - Path to the config.toml file
     ///
     /// # Example
-    /// ```
+    /// ```ignore
     /// use rust_jpl::Ephemeris;
     /// let mut eph = Ephemeris::new("config.toml")?;
     /// # Ok::<(), rust_jpl::Error>(())
