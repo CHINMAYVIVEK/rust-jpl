@@ -43,3 +43,11 @@ path = "examples/time_conversion.rs"
 [[example]]
 name = "planetary_positions"
 path = "examples/planetary_positions.rs"
+
+[package]
+exclude = [
+    "assets/linux_m13000p17000.441.bsp",
+    "assets/header.441",
+    "assets/Initial_data.dat"
+    "assets/testpo.441"
+]
