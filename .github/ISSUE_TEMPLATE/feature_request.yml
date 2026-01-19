@@ -1,0 +1,46 @@
+name: ✨ Feature Request
+description: Suggest new JPL integration or API enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        rust-jpl prioritizes correctness, stability, and clear APIs.
+        Please explain the motivation carefully.
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use Case
+      description: What problem does this feature solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: jpl_scope
+    attributes:
+      label: JPL Scope
+      description: Which JPL service, data source, or protocol is involved?
+    validations:
+      required: true
+
+  - type: textarea
+    id: api_design
+    attributes:
+      label: Proposed API Design
+      description: Function signatures, modules, or traits (if applicable)
+
+  - type: dropdown
+    id: breaking
+    attributes:
+      label: Is this a breaking change?
+      options:
+        - "No"
+        - "Yes"
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered

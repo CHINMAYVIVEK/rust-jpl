@@ -1,0 +1,72 @@
+name: 🐛 Bug Report
+description: Report incorrect behavior or failed JPL integration
+title: "[Bug]: "
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue! Since rust-jpl integrates with NASA JPL systems,
+        detailed reports help ensure correctness and safety.
+
+  - type: input
+    id: crate_version
+    attributes:
+      label: rust-jpl Version
+      placeholder: "e.g. 0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: rust_version
+    attributes:
+      label: Rust Version
+      placeholder: "rustc 1.xx.x"
+    validations:
+      required: true
+
+  - type: textarea
+    id: jpl_context
+    attributes:
+      label: JPL Context
+      description: Which NASA JPL API, dataset, or service are you integrating?
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Errors
+      render: shell
+
+  - type: textarea
+    id: minimal
+    attributes:
+      label: Minimal Example
+      description: Minimal Rust example demonstrating the issue.
