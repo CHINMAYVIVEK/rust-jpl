@@ -3,7 +3,43 @@
 `rust-jpl` is a Rust library that enables **integration of NASA Jet Propulsion Laboratory (JPL) ephemeris data** into Rust applications.  
 It provides **high-precision planetary and lunar positions** based on a given **Julian date**, using official **NASA JPL DE ephemerides (DE441)**.
 
-The library is designed for **scientific correctness, API clarity, and performance**, making it suitable for research, engineering, simulation, and educational use.
+The library is designed with:
+
+* **Scientific correctness**
+* **Deterministic numerical behavior**
+* **Clear, stable APIs**
+* **Performance suitable for simulation and analysis**
+
+Typical users include researchers, engineers, educators, and developers working
+in astronomy, astrodynamics, or scientific visualization.
+
+---
+
+## Ephemeris Data Sources (NASA JPL)
+
+The ephemeris data used by this crate is produced and published by
+**NASA Jet Propulsion Laboratory – Solar System Dynamics**.
+
+### Official Documentation
+
+* JPL Planetary & Lunar Ephemerides
+  [https://ssd.jpl.nasa.gov/planets/eph_export.html](https://ssd.jpl.nasa.gov/planets/eph_export.html)
+
+### Public FTP Archives
+
+* Ephemeris index
+  [https://ssd.jpl.nasa.gov/ftp/eph/planets/](https://ssd.jpl.nasa.gov/ftp/eph/planets/)
+* Linux-format ephemerides
+  [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/)
+* Binary SPICE kernels (`.bsp`)
+  [https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/](https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/)
+
+### Files Used by This Crate
+
+* **DE441 binary SPICE kernel**:
+  [https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/de441.bsp](https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/de441.bsp)
+* **Linux DE441 data file**:
+  [https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441/](https://ssd.jpl.nasa.gov/ftp/eph/planets/Linux/de441)
 
 ---
 
